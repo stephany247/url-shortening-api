@@ -17,11 +17,11 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
-/* @layer components {
+@layer components {
   .container {
-    @apply mx-auto max-w-5xl 2xl:max-w-6xl px-6;
+    @apply mx-auto max-w-5xl xl:max-w-6xl px-6 lg:px-12;
   }
-} */
+}
 
 body {
   @apply font-poppins text-lg text-center;
@@ -37,21 +37,22 @@ h3 {
 }
 
 p {
-  @apply text-gray-500 text-base;
+  @apply text-gray-500;
 }
 
 button {
-  @apply bg-blue-400/90 text-white px-6 py-3 font-semibold cursor-pointer hover:bg-blue-400 transition-colors duration-200 ease-in-out;
+  @apply bg-blue-400/80 text-white px-6 py-3 font-semibold cursor-pointer hover:bg-blue-400 transition-colors duration-200 ease-in-out;
 }
-
-/* Header base */
+.active{
+  @apply bg-purple-950 transition-colors duration-200 ease-in-out;
+}
 header {
   @apply relative flex justify-between lg:justify-normal items-center gap-6 w-full p-6 lg:px-16;
 }
 
-.container {
-  @apply mx-auto max-w-6xl xl:max-w-7xl px-6;
-}
+/* .container {
+  @apply mx-auto max-w-5xl xl:max-w-7xl px-6;
+} */
 
 /* Desktop nav links */
 .desktop-nav a {
@@ -72,25 +73,6 @@ header {
 .btn-mobile-signup {
   @apply block bg-cyan-500 hover:bg-cyan-400 text-white py-3 rounded-full font-semibold;
 }
-
-/* .card {
-  @apply relative bg-white p-8 pt-0 space-y-4 mb-24;
-} */
-
-/* .card img { */
-/* @apply bg-purple-950 p-4 rounded-full block mx-auto -mt-18; */
-/* @apply bg-purple-950 p-4 rounded-full block mx-auto my-0 -translate-y-[50%]; */
-/* @apply bg-purple-950 p-4 rounded-full block mx-auto absolute -top-1/5 left-1/2 -translate-x-1/2; */
-/* } */
-
-/* .card h1 {
-  @apply mt-0;
-}
-
-.stroke {
-  @apply absolute xl:top-1/2 xl:translate-y-[400%] left-1/2 xl:left-auto xl:-right-40 -translate-x-1/2 xl:-translate-x-0 block w-2.5 xl:w-40 h-40 xl:h-2.5 bg-blue-400;
-} */
-
 .card {
   @apply relative bg-white p-8 pt-0 space-y-4 rounded-lg z-10 text-center xl:text-left;
 }

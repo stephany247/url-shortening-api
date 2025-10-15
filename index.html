@@ -80,83 +80,31 @@
           </div>
         </div>
       </section>
-      <!-- <section class="relative bg-gray-100 px-6 space-y-8">
-        <form
-          action=""
-          class="bg-[url(/images/bg-shorten-mobile.svg)] bg-contain bg-no-repeat bg-top-right bg-purple-950 rounded-xl flex flex-col gap-4 p-6 w-full -translate-y-20"
-        >
-          <input
-            type="url"
-            name=""
-            id="input"
-            placeholder="Shorten a link here..."
-            class="bg-white p-3 rounded-lg placeholder:font-medium"
-          />
-          <button class="rounded-lg">Shorten It!</button>
-        </form>
-        <div class="mb-24">
-          <h1>Advanced Statistics</h1>
-          <p>
-            Track how your links are performing across the web with our advanced
-            statistics dashboard.
-          </p>
-        </div>
-        <div class="card">
-          <img
-            src="/images/icon-brand-recognition.svg"
-            alt="Brand recognition icon"
-          />
-
-          <h1>Brand Recognition</h1>
-          <p>
-            Boost your brand recognition with each click. Generic links don’t
-            mean a thing. Branded links help instil confidence in your content.
-          </p>
-          <span class="stroke"></span>
-        </div>
-        <div class="card">
-          <img
-            src="/images/icon-detailed-records.svg"
-            alt="Detailed Records icon"
-          />
-          <h1>Detailed Records</h1>
-          <p>
-            Gain insights into who is clicking your links. Knowing when and
-            where people engage with your content helps inform better decisions.
-          </p>
-          <span class="stroke"></span>
-        </div>
-        <div class="card">
-          <img
-            src="/images/icon-fully-customizable.svg"
-            alt="Fully customizable icon"
-          />
-          <h1>Fully Customizable</h1>
-          <p>
-            Improve brand awareness and content discoverability through
-            customizable links, supercharging audience engagement.
-          </p>
-        </div>
-      </section> -->
 
       <section class="relative bg-gray-100 px-6 space-y-8 pb-18 lg:pb-40">
         <!-- Shorten form -->
-        <form
-          action=""
-          class="container bg-[url(/images/bg-shorten-mobile.svg)] bg-contain bg-no-repeat bg-top-right bg-purple-950 rounded-xl flex flex-col gap-4 p-6 w-full -translate-y-20 mb-0"
-        >
-          <input
-            type="url"
-            id="input"
-            placeholder="Shorten a link here..."
-            class="bg-white p-3 rounded-lg placeholder:font-medium"
-          />
-          <button
-            class="rounded-lg bg-cyan-400 text-white font-semibold py-3 hover:opacity-80 transition"
+        <div class="container p-0 -translate-y-20">
+          <form
+            action=""
+            id="shorten-form"
+            class="bg-[url(/images/bg-shorten-mobile.svg)] lg:bg-[url(/images/bg-shorten-desktop.svg)] bg-contain lg:bg-cover bg-no-repeat bg-top-right lg:bg-center bg-purple-950 rounded-xl flex flex-col lg:flex-row gap-4 p-6 lg:p-12 w-full mb-0"
           >
-            Shorten It!
-          </button>
-        </form>
+            <input
+              type="url"
+              id="input"
+              placeholder="Shorten a link here..."
+              class="bg-white p-3 lg:p-4 rounded-lg placeholder:font-medium w-full"
+            />
+            <button
+              class="rounded-lg font-semibold py-3 px-4 hover:opacity-80 transition text-nowrap"
+            >
+              Shorten It!
+            </button>
+          </form>
+        </div>
+
+        <!-- Section to show shortened results -->
+        <div id="results" class="container p-0 -translate-y-14 space-y-4"></div>
 
         <!-- Intro -->
         <div class="mb-24 text-center max-w-md mx-auto">
@@ -222,7 +170,7 @@
       <section
         class="bg-[url(/images/bg-boost-mobile.svg)] lg:bg-[url(/images/bg-boost-desktop.svg)] bg-cover bg-no-repeat bg-center bg-purple-950 px-6 py-20 space-y-6"
       >
-        <h2 class="text-white! text-2xl">Boost your links today</h2>
+        <h2 class="text-white! text-2xl lg:text-4xl">Boost your links today</h2>
         <button class="rounded-full">Get Started</button>
       </section>
     </main>

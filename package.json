@@ -1,0 +1,21 @@
+{
+  "name": "url-shortening-shortening-api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@iconify-json/fa": "^1.2.2",
+    "@iconify-json/solar": "^1.2.4",
+    "@iconify/tailwind4": "^1.0.6",
+    "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "tailwindcss": "^4.1.14"
+  }
+}

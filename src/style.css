@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+
+@theme {
+  --color-blue-400: hsl(180, 66%, 49%);
+  --color-purple-950: hsl(257, 27%, 26%);
+
+  --color-red-400: hsl(0, 87%, 67%);
+
+  --color-gray-400: hsl(0, 0%, 75%);
+  --color-gray-500: hsl(257, 7%, 63%);
+  --color-gray-900: hsl(255, 11%, 22%);
+  --color-gray-950: hsl(260, 8%, 14%);
+
+  /* font  */
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* @layer components {
+  .container {
+    @apply mx-auto max-w-5xl 2xl:max-w-6xl px-6;
+  }
+} */
+
+body {
+  @apply font-poppins text-lg text-center;
+}
+
+h1,
+h2 {
+  @apply text-gray-950 font-bold;
+}
+
+h3 {
+  @apply text-white font-bold;
+}
+
+p {
+  @apply text-gray-500 text-base;
+}
+
+button {
+  @apply bg-blue-400/90 text-white px-6 py-3 font-semibold cursor-pointer hover:bg-blue-400 transition-colors duration-200 ease-in-out;
+}
+
+/* Header base */
+header {
+  @apply relative flex justify-between lg:justify-normal items-center gap-6 w-full p-6 lg:px-16;
+}
+
+.container {
+  @apply mx-auto max-w-6xl xl:max-w-7xl px-6;
+}
+
+/* Desktop nav links */
+.desktop-nav a {
+  @apply text-gray-500 font-medium hover:text-black transition duration-200;
+}
+
+/* Signup button (desktop) */
+.btn-signup {
+  @apply bg-blue-400/90 hover:bg-blue-400 text-white! px-6 py-2 rounded-full font-semibold transition duration-300 ease-in-out;
+}
+
+/* Mobile nav links */
+.mobile-nav a {
+  @apply block hover:text-cyan-400 transition duration-200;
+}
+
+/* Mobile signup button */
+.btn-mobile-signup {
+  @apply block bg-cyan-500 hover:bg-cyan-400 text-white py-3 rounded-full font-semibold;
+}
+
+/* .card {
+  @apply relative bg-white p-8 pt-0 space-y-4 mb-24;
+} */
+
+/* .card img { */
+/* @apply bg-purple-950 p-4 rounded-full block mx-auto -mt-18; */
+/* @apply bg-purple-950 p-4 rounded-full block mx-auto my-0 -translate-y-[50%]; */
+/* @apply bg-purple-950 p-4 rounded-full block mx-auto absolute -top-1/5 left-1/2 -translate-x-1/2; */
+/* } */
+
+/* .card h1 {
+  @apply mt-0;
+}
+
+.stroke {
+  @apply absolute xl:top-1/2 xl:translate-y-[400%] left-1/2 xl:left-auto xl:-right-40 -translate-x-1/2 xl:-translate-x-0 block w-2.5 xl:w-40 h-40 xl:h-2.5 bg-blue-400;
+} */
+
+.card {
+  @apply relative bg-white p-8 pt-0 space-y-4 rounded-lg z-10 text-center xl:text-left;
+}
+
+.card img {
+  @apply bg-purple-950 p-4 rounded-full block mx-auto my-0 xl:mx-0 -translate-y-1/2;
+}
+
+.card h2 {
+  @apply text-xl mt-0;
+}
+
+/* .card p {
+  @apply text-gray-500 text-sm;
+} */
+
+.stroke {
+  @apply absolute -z-0 block bg-cyan-400;
+}
+
+.icon {
+  @apply h-8 w-8 text-white cursor-pointer transition-colors duration-200 ease-in-out hover:text-blue-400;
+}
+
+#menu-btn {
+  @apply bg-transparent text-gray-500 p-0;
+}
+
+header a {
+  @apply font-semibold;
+}
+
+/* Footer link sections */
+.footer-links {
+  @apply flex flex-col md:flex-row gap-10 lg:gap-16 text-center md:text-left;
+}
+
+.footer-links h3 {
+  @apply font-bold mb-4 text-white;
+}
+
+.footer-links ul {
+  @apply space-y-2 text-gray-300;
+}
+
+.footer-links a {
+  @apply transition-colors duration-200 ease-in-out hover:text-blue-400 text-base;
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+  </head>
+  <body class="min-h-screen">
+    <header class="container">
+      <!-- Logo  -->
+      <img src="/images/logo.svg" alt="Shortly Logo" class="lg:hidden" />
+
+      <!-- Desktop Nav -->
+      <nav
+        class="desktop-nav hidden lg:flex items-center justify-between gap-10 w-full"
+      >
+        <div class="flex items-center gap-10">
+          <img src="/images/logo.svg" alt="Shortly Logo" />
+          <ul class="flex gap-8">
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6 ml-10">
+          <a href="#">Login</a>
+          <a href="#" class="btn-signup">Sign Up</a>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Icon -->
+      <button id="menu-btn" class="lg:hidden text-4xl">
+        <span class="icon-[solar--hamburger-menu-outline]"></span>
+      </button>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="mobile-menu"
+        class="mobile-nav absolute top-20 left-6 right-6 bg-purple-950 text-white rounded-lg p-8 text-center hidden"
+      >
+        <ul class="space-y-6 border-b border-gray-500 pb-6">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+
+        <div class="pt-6 space-y-6">
+          <a href="#">Login</a>
+          <a href="#" class="btn-mobile-signup">Sign Up</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden">
+        <div
+          class="container flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-16 lg:pt-10 pb-40"
+        >
+          <!-- text -->
+          <div class="md:w-8/10 lg:w-1/2 md:mx-auto text-center lg:text-left">
+            <h1 class="text-4xl lg:text-5xl xl:text-6xl mb-4">
+              More than just shorter links
+            </h1>
+            <p class="mb-6">
+              Build your brand’s recognition and get detailed insights on how
+              your links are performing.
+            </p>
+            <button class="rounded-full">Get Started</button>
+          </div>
+
+          <!-- Illustration -->
+          <div class="w-[145%] lg:-mr-48 xl:-mr-64 lg:w-[80%] xl:w-[70%]">
+            <img
+              src="/images/illustration-working.svg"
+              alt="working illustration"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- <section class="relative bg-gray-100 px-6 space-y-8">
+        <form
+          action=""
+          class="bg-[url(/images/bg-shorten-mobile.svg)] bg-contain bg-no-repeat bg-top-right bg-purple-950 rounded-xl flex flex-col gap-4 p-6 w-full -translate-y-20"
+        >
+          <input
+            type="url"
+            name=""
+            id="input"
+            placeholder="Shorten a link here..."
+            class="bg-white p-3 rounded-lg placeholder:font-medium"
+          />
+          <button class="rounded-lg">Shorten It!</button>
+        </form>
+        <div class="mb-24">
+          <h1>Advanced Statistics</h1>
+          <p>
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="/images/icon-brand-recognition.svg"
+            alt="Brand recognition icon"
+          />
+
+          <h1>Brand Recognition</h1>
+          <p>
+            Boost your brand recognition with each click. Generic links don’t
+            mean a thing. Branded links help instil confidence in your content.
+          </p>
+          <span class="stroke"></span>
+        </div>
+        <div class="card">
+          <img
+            src="/images/icon-detailed-records.svg"
+            alt="Detailed Records icon"
+          />
+          <h1>Detailed Records</h1>
+          <p>
+            Gain insights into who is clicking your links. Knowing when and
+            where people engage with your content helps inform better decisions.
+          </p>
+          <span class="stroke"></span>
+        </div>
+        <div class="card">
+          <img
+            src="/images/icon-fully-customizable.svg"
+            alt="Fully customizable icon"
+          />
+          <h1>Fully Customizable</h1>
+          <p>
+            Improve brand awareness and content discoverability through
+            customizable links, supercharging audience engagement.
+          </p>
+        </div>
+      </section> -->
+
+      <section class="relative bg-gray-100 px-6 space-y-8 pb-18 lg:pb-40">
+        <!-- Shorten form -->
+        <form
+          action=""
+          class="container bg-[url(/images/bg-shorten-mobile.svg)] bg-contain bg-no-repeat bg-top-right bg-purple-950 rounded-xl flex flex-col gap-4 p-6 w-full -translate-y-20 mb-0"
+        >
+          <input
+            type="url"
+            id="input"
+            placeholder="Shorten a link here..."
+            class="bg-white p-3 rounded-lg placeholder:font-medium"
+          />
+          <button
+            class="rounded-lg bg-cyan-400 text-white font-semibold py-3 hover:opacity-80 transition"
+          >
+            Shorten It!
+          </button>
+        </form>
+
+        <!-- Intro -->
+        <div class="mb-24 text-center max-w-md mx-auto">
+          <h1 class="text-2xl font-bold mb-3">Advanced Statistics</h1>
+          <p class="text-gray-500">
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+        </div>
+
+        <!-- Cards Wrapper -->
+        <div
+          class="container relative flex flex-col xl:flex-row items-center xl:items-stretch xl:justify-center gap-8 xl:gap-8"
+        >
+          <!-- stroke line -->
+          <span
+            class="stroke absolute bg-blue-400 w-2 h-full xl:h-2.5 xl:w-[80%] top-0 left-1/2 translate-x-1/12 xl:left-0 xl:top-1/2 xl:translate-y-9/12 z-0"
+          ></span>
+
+          <!-- Card 1 -->
+          <div class="card">
+            <img
+              src="/images/icon-brand-recognition.svg"
+              alt="Brand recognition icon"
+            />
+            <h2>Brand Recognition</h2>
+            <p>
+              Boost your brand recognition with each click. Generic links don’t
+              mean a thing. Branded links help instil confidence in your
+              content.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card lg:translate-y-1/6">
+            <img
+              src="/images/icon-detailed-records.svg"
+              alt="Detailed Records icon"
+            />
+            <h2>Detailed Records</h2>
+            <p>
+              Gain insights into who is clicking your links. Knowing when and
+              where people engage with your content helps inform better
+              decisions.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card lg:translate-y-2/6">
+            <img
+              src="/images/icon-fully-customizable.svg"
+              alt="Fully customizable icon"
+            />
+            <h2>Fully Customizable</h2>
+            <p>
+              Improve brand awareness and content discoverability through
+              customizable links, supercharging audience engagement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-[url(/images/bg-boost-mobile.svg)] lg:bg-[url(/images/bg-boost-desktop.svg)] bg-cover bg-no-repeat bg-center bg-purple-950 px-6 py-20 space-y-6"
+      >
+        <h2 class="text-white! text-2xl">Boost your links today</h2>
+        <button class="rounded-full">Get Started</button>
+      </section>
+    </main>
+    <footer class="bg-gray-950 text-white py-12">
+      <div
+        class="container flex flex-col md:flex-row justify-between items-center md:items-start gap-12 md:gap-0"
+      >
+        <!-- Logo -->
+        <div>
+          <img
+            src="/images/logo.svg"
+            alt="Shortly Logo"
+            class="brightness-0 invert"
+          />
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <!-- Features -->
+          <div>
+            <h3>Features</h3>
+            <ul>
+              <li><a href="#">Link Shortening</a></li>
+              <li><a href="#">Branded Links</a></li>
+              <li><a href="#">Analytics</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div>
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Developers</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-6">
+          <a href="#">
+            <span class="icon-[fa--facebook-official] icon"></span>
+          </a>
+          <a href="#">
+            <span class="icon-[fa--twitter] icon"></span>
+          </a>
+          <a href="#">
+            <span class="icon-[fa--pinterest] icon"></span>
+          </a>
+          <a href="#">
+            <span class="icon-[fa--instagram] icon"></span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

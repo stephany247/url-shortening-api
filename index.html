@@ -83,20 +83,27 @@
 
       <section class="relative bg-gray-100 px-6 space-y-8 pb-18 lg:pb-40">
         <!-- Shorten form -->
-        <div class="container p-0 -translate-y-20">
+        <div class="container px-0 lg:px-12 -translate-y-20">
           <form
-            action=""
             id="shorten-form"
-            class="bg-[url(/images/bg-shorten-mobile.svg)] lg:bg-[url(/images/bg-shorten-desktop.svg)] bg-contain lg:bg-cover bg-no-repeat bg-top-right lg:bg-center bg-purple-950 rounded-xl flex flex-col lg:flex-row gap-4 p-6 lg:p-12 w-full mb-0"
+            class="bg-[url(/images/bg-shorten-mobile.svg)] lg:bg-[url(/images/bg-shorten-desktop.svg)] bg-contain lg:bg-cover bg-no-repeat bg-top-right lg:bg-center bg-purple-950 rounded-xl flex flex-col lg:flex-row gap-6 p-6 lg:p-12 w-full mb-0"
           >
-            <input
-              type="url"
-              id="input"
-              placeholder="Shorten a link here..."
-              class="bg-white p-3 lg:p-4 rounded-lg placeholder:font-medium w-full"
-            />
+            <div class="relative flex flex-col w-full">
+              <input
+                type="url"
+                id="input"
+                placeholder="Shorten a link here..."
+                class="bg-white p-3 lg:p-4 rounded-lg placeholder:font-medium placeholder:text-gray-500 w-full border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200"
+              />
+              <span
+                class="error-text lg:absolute -bottom-6 left-2 mt-2 text-red-400 text-sm text-left italic hidden"
+              >
+                Please add a link
+              </span>
+            </div>
+
             <button
-              class="rounded-lg font-semibold py-3 px-4 hover:opacity-80 transition text-nowrap"
+              class="rounded-lg font-semibold py-3 px-4 text-nowrap"
             >
               Shorten It!
             </button>
@@ -104,7 +111,7 @@
         </div>
 
         <!-- Section to show shortened results -->
-        <div id="results" class="container p-0 -translate-y-14 space-y-4"></div>
+        <div id="results" class="container px-0 lg:px-12 -translate-y-14 space-y-6"></div>
 
         <!-- Intro -->
         <div class="mb-24 text-center max-w-md mx-auto">

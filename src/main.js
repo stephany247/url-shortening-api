@@ -5,6 +5,7 @@ const mobileMenu = document.getElementById("mobile-menu");
 const form = document.getElementById("shorten-form");
 const input = document.getElementById("input");
 const results = document.getElementById("results");
+const errorText = document.querySelector(".error-text");
 
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
@@ -18,8 +19,22 @@ form.addEventListener("submit", async (e) => {
 
   const originalUrl = input.value.trim();
   if (!originalUrl) {
-    alert("Please enter a valid URL");
-    return;
+    input.classList.add("border-red-400", "placeholder:text-red-400/40");
+    input.classList.remove("border-transparent");
+
+    // input.placeholder = "Please add a link";
+    if (errorText) {
+      errorText.textContent = "Please add a link";
+      errorText.classList.remove("hidden");
+    }
+    return; // stop further execution
+  }
+
+  // remove error styles if any
+  input.classList.remove("border-red-500", "placeholder:text-red-400/40");
+  input.classList.add("border-transparent");
+  if (errorText) {
+    errorText.classList.add("hidden");
   }
 
   const button = form.querySelector("button");
@@ -27,8 +42,6 @@ form.addEventListener("submit", async (e) => {
   button.textContent = "Shortening...";
 
   try {
-    // 🧩 Use proxy to bypass CORS
-    const proxy = "https://corsproxy.io/?";
     const endpoint = "https://spoo.me/";
     const options = {
       method: "POST",
@@ -76,13 +89,17 @@ function renderLink(originalUrl, shortUrl) {
 
   const resultItem = document.createElement("div");
   resultItem.className =
-    "bg-white w-full rounded-lg flex flex-col lg:flex-row items-center justify-between shadow text-left";
+    "relative bg-white w-full rounded-lg flex flex-col lg:flex-row items-center justify-between shadow text-left";
 
   resultItem.innerHTML = `
   <p class="w-full font-medium text-left text-gray-950 truncate border-b border-gray-300 p-4 lg:border-none">
     ${originalUrl}
   </p>
   <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-4 p-4 lg:mt-0 w-full">
+    <button class="delete-btn">
+       
+        <span class="icon-[fa7-solid--xmark-circle] icon"></span>
+      </button>
     <a href="${shortUrl}" target="_blank" class="text-cyan-500 hover:underline break-all">${shortUrl}</a>
     <button class="copy-btn w-full lg:w-24 flex items-center justify-center bg-cyan-500 text-white font-semibold px-4 py-2 lg:py-0 rounded-lg hover:opacity-80 transition">
       Copy
@@ -102,6 +119,20 @@ function renderLink(originalUrl, shortUrl) {
       copyBtn.textContent = "Copy";
       copyBtn.classList.remove("active");
     }, 1500);
+  });
+
+  // ❌ Delete functionality
+  const deleteBtn = resultItem.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", () => {
+    // Remove from UI
+    resultItem.remove();
+
+    // Remove from localStorage
+    const savedLinks = JSON.parse(localStorage.getItem("shortenedLinks")) || [];
+    const updatedLinks = savedLinks.filter(
+      (link) => link.shortUrl !== shortUrl
+    );
+    localStorage.setItem("shortenedLinks", JSON.stringify(updatedLinks));
   });
 }
 

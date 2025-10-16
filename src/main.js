@@ -1,4 +1,5 @@
 import "./style.css";
+import axios from "axios";
 
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -22,15 +23,13 @@ form.addEventListener("submit", async (e) => {
     input.classList.add("border-red-400", "placeholder:text-red-400/40");
     input.classList.remove("border-transparent");
 
-    // input.placeholder = "Please add a link";
     if (errorText) {
       errorText.textContent = "Please add a link";
       errorText.classList.remove("hidden");
     }
-    return; // stop further execution
+    return;
   }
 
-  // remove error styles if any
   input.classList.remove("border-red-500", "placeholder:text-red-400/40");
   input.classList.add("border-transparent");
   if (errorText) {
@@ -43,33 +42,30 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const endpoint = "https://spoo.me/";
-    const options = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
+    const response = await axios.post(
+      endpoint,
+      new URLSearchParams({
         url: originalUrl,
         "block-bots": "false",
       }),
-    };
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
 
-    const response = await fetch(endpoint, options);
-
-    const data = await response.json();
+    const data = response.data;
     console.log(data);
 
-    if (!data.short_url) {
+    if (data.short_url) {
+      const { short_url: shortUrl } = data;
+      saveLink({ originalUrl, shortUrl });
+      renderLink(originalUrl, shortUrl);
+    } else {
       throw new Error(data.error || "Shortening failed");
     }
-
-    const shortUrl = data.short_url;
-    // Save to localStorage
-    saveLink({ originalUrl, shortUrl });
-
-    // Display link
-    renderLink(originalUrl, shortUrl);
 
     // Reset button
     button.disabled = false;
@@ -85,7 +81,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 function renderLink(originalUrl, shortUrl) {
-  // ✅ Create a result item dynamically
+  // Create a result item dynamically
 
   const resultItem = document.createElement("div");
   resultItem.className =
@@ -97,9 +93,8 @@ function renderLink(originalUrl, shortUrl) {
   </p>
   <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-4 p-4 lg:mt-0 w-full">
     <button class="delete-btn">
-       
         <span class="icon-[fa7-solid--xmark-circle] icon"></span>
-      </button>
+    </button>
     <a href="${shortUrl}" target="_blank" class="text-cyan-500 hover:underline break-all">${shortUrl}</a>
     <button class="copy-btn w-full lg:w-24 flex items-center justify-center bg-cyan-500 text-white font-semibold px-4 py-2 lg:py-0 rounded-lg hover:opacity-80 transition">
       Copy
@@ -121,7 +116,7 @@ function renderLink(originalUrl, shortUrl) {
     }, 1500);
   });
 
-  // ❌ Delete functionality
+  // Delete functionality
   const deleteBtn = resultItem.querySelector(".delete-btn");
   deleteBtn.addEventListener("click", () => {
     // Remove from UI

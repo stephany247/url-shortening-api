@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,7 +38,7 @@
       <!-- Mobile Menu -->
       <nav
         id="mobile-menu"
-        class="mobile-nav absolute top-20 left-6 right-6 bg-purple-950 text-white rounded-lg p-8 text-center hidden"
+        class="mobile-nav absolute top-20 left-6 right-6 z-10 bg-purple-950 text-white rounded-lg p-8 text-center hidden"
       >
         <ul class="space-y-6 border-b border-gray-500 pb-6">
           <li><a href="#">Features</a></li>
@@ -81,7 +81,7 @@
         </div>
       </section>
 
-      <section class="relative bg-gray-100 px-6 space-y-8 pb-18 lg:pb-40">
+      <section class="relative bg-gray-100 px-6 lg:px-0 space-y-8 pb-18 lg:pb-40">
         <!-- Shorten form -->
         <div class="container px-0 lg:px-12 -translate-y-20">
           <form
@@ -102,16 +102,17 @@
               </span>
             </div>
 
-            <button
-              class="rounded-lg font-semibold py-3 px-4 text-nowrap"
-            >
+            <button class="rounded-lg font-semibold py-3 px-4 text-nowrap">
               Shorten It!
             </button>
           </form>
         </div>
 
         <!-- Section to show shortened results -->
-        <div id="results" class="container px-0 lg:px-12 -translate-y-14 space-y-6"></div>
+        <div
+          id="results"
+          class="container px-0 lg:px-12 -translate-y-14 space-y-6"
+        ></div>
 
         <!-- Intro -->
         <div class="mb-24 text-center max-w-md mx-auto">
@@ -124,11 +125,11 @@
 
         <!-- Cards Wrapper -->
         <div
-          class="container relative flex flex-col xl:flex-row items-center xl:items-stretch xl:justify-center gap-8 xl:gap-8"
+          class="container relative flex flex-col lg:flex-row items-center lg:items-stretch lg:justify-center gap-20 lg:gap-8"
         >
           <!-- stroke line -->
           <span
-            class="stroke absolute bg-blue-400 w-2 h-full xl:h-2.5 xl:w-[80%] top-0 left-1/2 translate-x-1/12 xl:left-0 xl:top-1/2 xl:translate-y-9/12 z-0"
+            class="stroke absolute bg-blue-400 w-2 h-full top-0 left-1/2 -translate-x-1/2 lg:w-[80%] lg:h-2.5 lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2 z-0"
           ></span>
 
           <!-- Card 1 -->

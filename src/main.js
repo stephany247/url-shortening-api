@@ -88,7 +88,7 @@ function renderLink(originalUrl, shortUrl) {
     "relative bg-white w-full rounded-lg flex flex-col lg:flex-row items-center justify-between shadow text-left";
 
   resultItem.innerHTML = `
-  <p class="w-full font-medium text-left text-gray-950 truncate border-b border-gray-300 p-4 lg:border-none">
+  <p class="w-full font-medium text-left text-purple-950! truncate border-b border-gray-300 p-4 lg:border-none">
     ${originalUrl}
   </p>
   <div class="flex flex-col lg:flex-row lg:items-center justify-end gap-4 p-4 lg:mt-0 w-full">
